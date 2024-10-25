@@ -1,0 +1,133 @@
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    font-family: Poppins;
+  }
+  
+
+  .btn-secondary {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #0056b3;
+  }
+  
+  .product-card {
+    /* Your existing styles for the product card */
+    display: block; /* Ensure it's treated as a block element */
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit text color */
+    transition: transform 0.2s; /* Add transition for hover effect */
+}
+
+/* Change cursor to pointer on hover */
+.product-card:hover {
+    cursor: pointer; /* Change cursor to pointer */
+    transform: scale(1.02); /* Optional: Slightly scale the card on hover */
+}
+
+  .card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-content h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+  
+  .card-content .category {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .card-content .price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* Pagination */
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .pagination button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .main{
+    font-family: Poppins;
+  }
+  .btn-secondary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-secondary.added {
+    background-color: #28a745;
+    color: white;
+  }
+
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .products-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  
+    .card-content h3 {
+      font-size: 1em;
+    }
+  
+    .card-content .price {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .products-container {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust columns for smaller screens */
+    }
+  
+    .card-content h3 {
+      font-size: 0.9em;
+    }
+  
+    .card-content .price {
+      font-size: 0.9em;
+    }
+  }
+  

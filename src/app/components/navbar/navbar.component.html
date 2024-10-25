@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <a href="#">Apple Store</a>
+      </div>
+  
+      <!-- Desktop Menu -->
+      <ul class="navbar-menu" [class.active]="isMenuOpen">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/products/all">Products</a></li>
+        <li><a routerLink="/cart">Cart</a></li>
+      </ul>
+  
+      <div class="navbar-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  

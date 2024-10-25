@@ -1,0 +1,38 @@
+<div *ngIf="isLoading; else productContent">
+  <!-- Your loading spinner here -->
+  <div class="spinner">
+    <img src="/assets/images/spinner.gif" alt="Loading..." />
+  </div>
+</div>
+
+<ng-template #productContent>
+  <div *ngIf="product">
+    <div class="product-details-container">
+      <div class="image-gallery">
+        <div class="main-image">
+          <img *ngIf="product?.imagesUrls" [src]="selectedImage || product.imagesUrls[0]" alt="Main Product Image">
+        </div>
+        <div class="thumbnail-images">
+          <img *ngFor="let image of product?.imagesUrls; let i = index" 
+               [src]="image" 
+               alt="Thumbnail Image" 
+               (click)="onThumbnailClick(image)">
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <p class="product-price">Price: {{ product.price }}$</p>
+        <p class="product-category">Category: {{ product.category }}</p>
+        <div class="product-description">
+          <p>{{ product.description }}</p>
+        </div>
+        <button class="btn-secondary" 
+                [class.added]="isAddedToCart(product.productId)"
+                (click)="addToCart(product.productId); $event.stopPropagation();">
+          {{ isAddedToCart(product.productId) ? 'Added to Cart' : 'Add to Cart' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

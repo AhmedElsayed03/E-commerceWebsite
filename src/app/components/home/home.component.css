@@ -1,0 +1,86 @@
+.hero {
+    background-image: url('/assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    font-family: Poppins;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #cc7a00;
+  }
+  
+  
+  .featured-products {
+    padding: 50px 0;
+    text-align: center;
+    font-family: Poppins;   
+  }
+  
+  .product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: Poppins;
+  }
+  
+  .product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    font-family: Poppins;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .btn-secondary {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #0056b3;
+  }
+
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    font-family: poppins;
+  }
+  .btn-secondary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-secondary.added {
+    background-color: #28a745;
+    color: white;
+  }

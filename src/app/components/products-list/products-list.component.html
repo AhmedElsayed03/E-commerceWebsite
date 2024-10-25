@@ -1,0 +1,37 @@
+<div class="main">
+  <label for="category-select">Select a Category: </label>
+  <select id="category-select" (change)="onCategoryChange($event)">
+    <option value="all">All Categories</option>
+    <option *ngFor="let category of allCategories" [value]="category.id">{{ category.name }}</option>
+  </select>
+</div>
+
+<div class="products-container">
+  <div *ngFor="let product of products | async" class="product-card" [routerLink]="['/product-details', product.productId]">
+    <div class="card-image">
+      <img *ngIf="product.imagesUrls.length > 0; else noImage" [src]="product.imagesUrls[0]" alt="Product Image">
+      <ng-template #noImage>
+        <img src="assets/no-image.jpg" alt="No Image Available">
+      </ng-template>
+    </div>
+    <div class="card-content">
+      <h3>{{ product.name }}</h3>
+      <p class="category">{{ product.category }}</p>
+      <p class="price">${{ product.price }}</p>
+      <button class="btn-secondary" 
+        [class.added]="isAddedToCart(product.productId)"
+        (click)="addToCart(product.productId); $event.stopPropagation();">
+        {{ isAddedToCart(product.productId) ? 'Added to Cart' : 'Add to Cart' }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination buttons -->
+<div class="pagination">
+  <button *ngFor="let page of pages" 
+          (click)="changePage(page, selectedCategoryId)" 
+          [class.active]="page === currentPage">
+    {{ page }}
+  </button>
+</div>

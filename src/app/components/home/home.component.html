@@ -1,0 +1,32 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Our E-Commerce Store</h1>
+    <p>Discover the best products at unbeatable prices!</p>
+    <button class="btn-primary" routerLink="/products">Shop Now</button>
+  </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-products">
+  <h2>Featured Products</h2>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of products | async" class="product-card">
+      <img [src]="product.imagesUrls[0]" alt="{{product.name}}" class="product-image">
+      <h3>{{product.name}}</h3>
+      <p>{{product.price | currency}}</p>
+      <button class="btn-secondary" 
+        [class.added]="isAddedToCart(product.productId)"
+        (click)="addToCart(product.productId)">
+        {{ isAddedToCart(product.productId) ? 'Added to Cart' : 'Add to Cart' }}
+      </button>
+      <!-- <button class="btn-secondary" (click)="addToCard(id)">Add to Cart</button> -->
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <p>&copy; 2024 Apple Store. All Rights Reserved.</p>
+</footer>

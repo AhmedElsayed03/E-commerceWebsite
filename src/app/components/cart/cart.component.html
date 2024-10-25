@@ -1,0 +1,51 @@
+<div class="cart-container">
+    <ng-container *ngFor="let item of cartItems$ | async; let i = index">
+      <div *ngIf="itemsQuantity[i] > 0" class="cart-item">
+        <!-- Image on the left with buttons centered below -->
+        <div class="cart-item-image">
+          <img src="{{item.productDetailsReadDto.imagesUrls[0]}}" alt="Product Image">
+          
+          <!-- Centered counter under the image -->
+          <div class="cart-item-controls">
+            <div class="cart-item-buttons">
+              <button type="button" (click)="minusItemCount(item.productDetailsReadDto.productId, i, item.productDetailsReadDto.price)">-</button>
+              <span class="cart-item-quantity">{{ itemsQuantity[i] }}</span>
+              <button type="button" (click)="plusItemCount(item.productDetailsReadDto.productId, i, item.productDetailsReadDto.price)">+</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Content (text) on the right -->
+        <div class="cart-item-content">
+          <p>{{ item.productDetailsReadDto.name }}</p>
+          <p>{{ item.productDetailsReadDto.description }}</p>
+          <p>Price: ${{ item.productDetailsReadDto.price }}</p>
+          <p>Item Total Price: ${{ itemTotalprice[i].toFixed(2) }}</p>
+          <button class="remove-from-cart" (click)="removeFromCart(item.productDetailsReadDto.productId)">Remove</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  
+  <div class="total-price" *ngIf="!isCartEmpty(); else emptyCart">
+    Number of items: {{ itemsNumber }}
+  </div>
+
+  <div class="total-price" *ngIf="!isCartEmpty(); else emptyCart">
+    Total Price: ${{ totalPrice.toFixed(2) }}
+  </div>
+
+  <!-- Checkout Button -->
+<div class="checkout-container">
+  <button class="btn-checkout" (click)="goToCheckout()">
+    Checkout
+  </button>
+</div>
+  <ng-template #emptyCart>
+    <div class="empty-cart-message">
+      Cart is empty.
+    </div>
+  </ng-template>
+  
+  
+  
